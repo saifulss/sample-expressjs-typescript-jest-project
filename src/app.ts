@@ -1,5 +1,5 @@
 import { config } from 'dotenv';
-import express, { Application, Request, Response } from 'express';
+import express, { Application } from 'express';
 import { RootController } from './controllers/RootController';
 import { RequestHeaderLoggerMiddleware } from './middlewares/RequestHeadersLoggerMiddleware';
 import { UserController } from './controllers/UserController';

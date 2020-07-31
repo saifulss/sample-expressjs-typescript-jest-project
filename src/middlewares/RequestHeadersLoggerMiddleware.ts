@@ -1,6 +1,7 @@
-import { NextFunction, Request, Response } from 'express';
+import { NextFunction, Request, RequestHandler, Response } from 'express';
 
-export const RequestHeaderLoggerMiddleware = (req: Request, res: Response, next: NextFunction) => {
-  console.log(req.headers);
-  next();
-};
+export const RequestHeaderLoggerMiddleware: RequestHandler =
+  (req: Request, res: Response, next: NextFunction) => {
+    console.log(req.headers);
+    next();
+  };
