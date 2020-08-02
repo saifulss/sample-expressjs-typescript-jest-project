@@ -3,12 +3,14 @@ import express, { Application } from 'express';
 import { RootController } from './controllers/RootController';
 import { RequestHeaderLoggerMiddleware } from './middlewares/RequestHeadersLoggerMiddleware';
 import { UserController } from './controllers/UserController';
+import bodyParser from 'body-parser';
 
 config();
 
 const app: Application = express();
 
 // middleware
+app.use(bodyParser.json());
 app.use(RequestHeaderLoggerMiddleware);
 
 // controllers (and their routes)
