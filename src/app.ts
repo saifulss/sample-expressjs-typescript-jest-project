@@ -4,6 +4,7 @@ import { RootController } from './controllers/RootController';
 import { RequestHeaderLoggerMiddleware } from './middlewares/RequestHeadersLoggerMiddleware';
 import { UserController } from './controllers/UserController';
 import bodyParser from 'body-parser';
+import { GenericErrorHandler } from './middlewares/GenericErrorHandler';
 
 config();
 
@@ -16,6 +17,8 @@ app.use(RequestHeaderLoggerMiddleware);
 // controllers (and their routes)
 app.use(RootController);
 app.use(UserController);
+
+app.use(GenericErrorHandler);
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
