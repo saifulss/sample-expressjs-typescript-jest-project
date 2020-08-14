@@ -7,7 +7,9 @@
     "dev": "nodemon",
     "test": "jest",
     "lint": "eslint . --ext .ts",
-    "coverage": "jest --coverage --no-cache"
+    "coverage": "jest --coverage --no-cache",
+    "migration:run": "ts-node ./node_modules/typeorm/cli.js migration:run",
+    "migration:revert": "ts-node ./node_modules/typeorm/cli.js migration:revert"
   },
   "keywords": [],
   "author": "",
