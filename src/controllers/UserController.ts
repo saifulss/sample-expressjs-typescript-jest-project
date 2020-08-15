@@ -1,12 +1,20 @@
 import express, { Request, Response } from 'express';
-import { User } from '../models/User/User';
+import { DatabaseConnection } from '../DatabaseConnection';
+import { User } from '../entities/User';
+import { IUser } from '../types/types';
 
 export const UserController = express();
 
-UserController.get('/users', (req: Request, res: Response) => {
-  const user1 = new User('aaa');
-  const user2 = new User('bbb');
-  const user3 = new User('ccc');
+UserController.get('/users', async (req: Request, res: Response) => {
+  const connection = await DatabaseConnection.getInstance();
 
-  res.send([user1, user2, user3]);
+  const users = await connection
+    .getRepository(User)
+    .find();
+
+  res.send(users.map((user: User): IUser => ({
+    id: user.id,
+    displayName: user.displayName,
+    email: user.email
+  })));
 });
