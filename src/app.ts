@@ -5,6 +5,7 @@ import { RequestHeaderLoggerMiddleware } from './middlewares/RequestHeadersLogge
 import { UserController } from './controllers/UserController';
 import bodyParser from 'body-parser';
 import { GenericErrorHandler } from './middlewares/GenericErrorHandler';
+import { LoginController } from './controllers/LoginController';
 
 config();
 
@@ -16,6 +17,7 @@ app.use(RequestHeaderLoggerMiddleware);
 
 // controllers (and their routes)
 app.use(RootController);
+app.use(LoginController);
 app.use(UserController);
 
 app.use(GenericErrorHandler);
