@@ -1,4 +1,4 @@
-import { IToken, IUser } from '../types/types';
+import { IToken, IUser } from '../../types/types';
 import { sign, verify } from 'jsonwebtoken';
 
 interface IJwtService {

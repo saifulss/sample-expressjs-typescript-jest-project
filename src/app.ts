@@ -6,6 +6,7 @@ import { UserController } from './controllers/UserController';
 import bodyParser from 'body-parser';
 import { GenericErrorHandler } from './middlewares/GenericErrorHandler';
 import { LoginController } from './controllers/LoginController';
+import { JwtVerificationMiddleware } from './middlewares/JwtVerificationMiddleware';
 
 config();
 
@@ -14,6 +15,7 @@ const app: Application = express();
 // middleware
 app.use(bodyParser.json());
 app.use(RequestHeaderLoggerMiddleware);
+app.use(JwtVerificationMiddleware);
 
 // controllers (and their routes)
 app.use(RootController);

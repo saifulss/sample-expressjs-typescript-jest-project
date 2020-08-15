@@ -1,5 +1,5 @@
 import { JwtService } from './JwtService';
-import { IUser } from '../types/types';
+import { IUser } from '../../types/types';
 import moment from 'moment';
 
 describe('JwtService.ts', () => {

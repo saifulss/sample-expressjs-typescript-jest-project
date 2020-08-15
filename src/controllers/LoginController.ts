@@ -1,7 +1,7 @@
 import express, { NextFunction, Request, Response } from 'express';
 import createHttpError from 'http-errors';
 import { UserService } from '../services/UserService';
-import { JwtService } from '../services/JwtService';
+import { JwtService } from '../services/JwtService/JwtService';
 
 export const LoginController = express();
 
